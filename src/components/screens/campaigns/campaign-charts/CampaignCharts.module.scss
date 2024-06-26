@@ -1,0 +1,33 @@
+@use '../../../../styles/variables.scss' as vars;
+
+.row {
+	@apply w-full mb-[15px];
+
+	&:last-child {
+		@apply mb-0;
+	}
+}
+
+.item {
+	@apply my-0 mx-auto w-[48.9517%] inline-block;
+
+	&:first-child {
+		@apply mr-[7.5px];
+	}
+
+	&:last-child {
+		@apply ml-[7.5px];
+	}
+
+	@media (max-width: vars.$md2) {
+		@apply w-full;
+
+		&:first-child {
+			@apply mr-0 mb-[15px];
+		}
+
+		&:last-child {
+			@apply ml-0;
+		}
+	}
+}

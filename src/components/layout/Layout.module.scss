@@ -1,0 +1,7 @@
+.dashboardContent {
+	@apply flex-auto mt-[70px] ml-[250px] overflow-hidden p-[15px] bg-[#222736] transition-[margin] duration-300;
+
+  &__closed {
+		@apply mt-[70px] ml-[70px];
+  }
+}

@@ -1,0 +1,25 @@
+.header {
+	@apply fixed top-0 right-0 left-0 z-[1000];
+
+	background-color: rgb(38, 44, 61);
+	-webkit-box-shadow: 0 0.75rem 1.5rem rgba(18, 38, 63, 0.03);
+	box-shadow: 0 0.75rem 1.5rem rgba(18, 38, 63, 0.03);
+
+	&Navbar {
+			@apply h-[70px] px-4 ml-[250px];
+			transition: margin-left 0.3s;
+
+			&__button {
+					@apply w-[50px] h-full transition-colors;
+					background-color: rgb(38, 44, 61);
+
+					&:hover {
+							background-color: rgb(51 59 81);
+					}
+			}
+
+			&_closed {
+				@apply ml-[70px];
+			}
+	}
+}

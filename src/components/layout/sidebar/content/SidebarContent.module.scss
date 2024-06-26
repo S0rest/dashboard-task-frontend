@@ -1,0 +1,26 @@
+.menuItem {
+	&__link {
+		@apply flex items-center text-xl py-[10px] px-[24px] text-[#a6b0cf] transition-colors;
+
+		&:hover {
+			@apply text-[#fff];
+		}
+
+		&_active {
+			@apply text-[#fff];
+		}
+	}
+
+	&__text {
+		@apply pl-[15px];
+	}
+
+	&:hover {
+		background-color: rgb(47 54 74);
+		@apply  transition-colors;
+	}
+}
+
+.scrollbar {
+	@apply h-full;
+}

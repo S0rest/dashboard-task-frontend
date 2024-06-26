@@ -1,0 +1,49 @@
+.verticalMenu {
+	@apply w-[250px] z-[1001] bg-[#2a3042] fixed bottom-0 top-0 mt-0;
+
+	box-shadow: 0 0.75rem 1.5rem rgba(18, 38, 63, 0.03);
+	transition: width 0.3s;
+
+	&_collapsed {
+		@apply w-[70px];
+	}
+
+	.navbarBrandBox {
+		@apply fixed top-0 z-[99] p-[7.5px] text-center w-[250px] h-[70px];
+
+		&_collapsed {
+			@apply w-[70px];
+		}
+
+		@media (max-width: 991.98px) {
+			@apply w-[70px];
+		}
+	}
+}
+
+.logo {
+
+	svg {
+		@apply w-[50px] h-[50px];
+	}
+
+	&Text {
+		@apply text-4xl text-[#A6B0CF] ml-3;
+	}
+}
+
+.sidebarMenu {
+	@apply w-[250px] z-[1001] bg-[#2a3042] fixed top-[70px] bottom-0 mt-0 pt-[10px] pb-[30px];
+
+	-webkit-box-shadow: 0 0.75rem 1.5rem rgba(18, 38, 63, 0.03);
+	box-shadow: 0 0.75rem 1.5rem rgba(18, 38, 63, 0.03);
+	transition: width 0.3s;
+
+	&_collapsed {
+		@apply w-[70px];
+	}
+}
+
+.link {
+	@apply flex items-center;
+}

@@ -1,0 +1,16 @@
+.dashboard-card {
+	@apply bg-[#2a3042] p-[15px] rounded;
+	box-shadow: 0 0.75rem 1.5rem rgba(18, 38, 63, 0.03);
+}
+
+.input {
+	@apply w-full h-[35px] py-[7.5px] px-[12px] text-[16px]/[1.5] text-[#fff] bg-[#2a3042] border border-solid border-[#353d55] rounded transition-colors;
+
+	&::placeholder {
+		@apply text-[16px] text-[#a6b0cf];
+	}
+}
+
+.title {
+	@apply text-[#fff] text-2xl uppercase tracking-wide mb-[25px];
+}
