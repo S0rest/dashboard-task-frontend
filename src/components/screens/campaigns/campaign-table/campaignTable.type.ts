@@ -1,5 +1,4 @@
 import { MetricsResponse } from '@/services/metrics.types'
-import { AxiosError } from 'axios'
 import { ChangeEvent } from 'react'
 
 export type CampaignTableProps = {
@@ -8,5 +7,5 @@ export type CampaignTableProps = {
 	handleSearch: (e: ChangeEvent<HTMLInputElement>) => void
 	isLoading: boolean
 	isError: boolean
-	error: AxiosError
+	error: string
 }

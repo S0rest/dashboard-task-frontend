@@ -12,7 +12,14 @@ import { CampaignTableProps } from './campaignTable.type'
 import TablePreloader from './preloader/TablePreloader'
 
 const CampaignTable = memo(
-	({ dataSource, searchTerm, handleSearch, isLoading, isError, error }: CampaignTableProps) => {
+	({
+		dataSource,
+		searchTerm,
+		handleSearch,
+		isLoading,
+		isError,
+		error,
+	}: CampaignTableProps) => {
 		const navigate = useNavigate()
 
 		const handleRowClick = (id: number) => {
@@ -22,7 +29,7 @@ const CampaignTable = memo(
 		return (
 			<div className='dashboard-card mb-6'>
 				{isError ? (
-					<DashboardError text={error?.message} />
+					<DashboardError text={error} />
 				) : (
 					<SimpleBar autoHide={false} className={s.orderTable}>
 						<div className={s.orderTable__row}>

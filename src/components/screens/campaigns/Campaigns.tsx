@@ -1,16 +1,17 @@
+import { useDebounce } from '@/hooks/useDebounce'
 import { useMetricsQuery } from '@/hooks/useMetricsQuery'
-import { createChartOptions } from '@/util/helpers'
-import { AxiosError } from 'axios'
+import { createChartOptions, handleErrorMsg } from '@/util/helpers'
 import { ChangeEvent, useEffect, useState } from 'react'
 import CampaignCharts from './campaign-charts/CampaignCharts'
 import CampaignTable from './campaign-table/CampaignTable'
-import { useDebounce } from '@/hooks/useDebounce'
 
 const Campaigns = () => {
-	const [searchTerm, setSearchTerm] = useState('');
-	const debouncedValue = useDebounce(searchTerm);
-	const { data, isLoading, isError, error } = useMetricsQuery({search: debouncedValue})
-	
+	const [searchTerm, setSearchTerm] = useState('')
+	const debouncedValue = useDebounce(searchTerm)
+	const { data, isLoading, isError, error } = useMetricsQuery({
+		search: debouncedValue,
+	})
+
 	const [imprOpt, setImprOpt] = useState({})
 	const [clicksOpt, setClicksOpt] = useState({})
 	const [costOpt, setCostOpt] = useState({})
@@ -74,7 +75,7 @@ const Campaigns = () => {
 	const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
 		setSearchTerm(e.target.value)
 	}
-	
+
 	return (
 		<>
 			<h2 className='title'>Campaigns</h2>
@@ -84,7 +85,7 @@ const Campaigns = () => {
 				handleSearch={handleSearch}
 				isLoading={isLoading}
 				isError={isError}
-				error={error as AxiosError}
+				error={handleErrorMsg(error)}
 			/>
 			<h3 className='title'>Ad Performance Metrics</h3>
 			<CampaignCharts

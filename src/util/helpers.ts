@@ -1,4 +1,6 @@
+import { MetricsError, MetricsResponse } from '@/services/metrics.types'
 import { ChartOptionsType } from '@/types/hooks.types'
+import axios, { AxiosError } from 'axios'
 import { BookAIcon, HouseIcon, LineChartIcon } from 'lucide-react'
 import { ROUTE } from './enums'
 
@@ -97,26 +99,38 @@ export const createChartOptions = ({
 		title: {
 			text,
 		},
-		plotOptions: {
-			series: {
-				// general options for all series
-			},
-			pie: {
-				// shared options for all pie series
-			},
-		},
 		series: [
 			{
 				name: type === 'pie' ? 'Percentage' : text,
 				type,
-				data: type === 'pie' ? data?.map(p => ({
-					name: p.ad_name,
-					y: p.ctr
-				})) : data,
+				data:
+					type === 'pie'
+						? (data as MetricsResponse[])?.map(p => ({name: p.ad_name, y: p.ctr}))
+						: data,
 			},
 		],
 		xAxis: {
 			categories,
 		},
 	}
+}
+
+export const handleErrorMsg = (error: unknown) => {
+	let errorMsg: string
+
+	if (axios.isAxiosError(error)) {
+		const axiosError = error as AxiosError
+
+		const metricsError = axiosError.response?.data as unknown as MetricsError
+
+		if (metricsError && metricsError.message) {
+			errorMsg = metricsError.message
+		} else {
+			errorMsg = axiosError.message
+		}
+	} else {
+		errorMsg = 'Response error occurred'
+	}
+
+	return errorMsg
 }

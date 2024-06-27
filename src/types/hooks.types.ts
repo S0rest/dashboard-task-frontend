@@ -6,9 +6,9 @@ export type DimensionsPropsType = {
 }
 
 export type ChartOptionsType = {
-	text: string 
-	type: string
-	data: number[] | undefined | MetricsResponse[] 
+	text: string
+	type: 'pie' | 'line' | 'bar'
+	data: MetricsResponse[] | number[] | undefined
 	categories: string[] | undefined
 }
 

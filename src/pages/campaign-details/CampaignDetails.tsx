@@ -2,6 +2,7 @@ import CampaignChart from '@/components/chart/CampaignChart'
 import DashboardError from '@/components/error/DashboardError'
 import { useMetricQuery } from '@/hooks/useMetricQuery'
 import { ROUTE } from '@/util/enums'
+import { handleErrorMsg } from '@/util/helpers'
 import Highcharts from 'highcharts'
 import { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
@@ -70,9 +71,7 @@ const CampaignDetails = () => {
 	return (
 		<div className='dashboard-card'>
 			{isError ? (
-				<DashboardError
-					text={error?.response?.data?.message || error?.message}
-				/>
+				<DashboardError text={handleErrorMsg(error)} />
 			) : (
 				!isLoading && (
 					<>
